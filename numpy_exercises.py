@@ -58,6 +58,8 @@ product_of_a = product(a) #create a variable called product_of_a and run the pro
 # Exercise 6 - Make a variable named squares_of_a. It should hold each number in a squared like [1, 4, 9, 16, 25...]
 squares_of_a = [number ** 2 for number in a] #create a list that squares a number for all numbers in 'a'
 # Exercise 7 - Make a variable named odds_in_a. It should hold only the odd numbers
+#list comprehension would be abother way to solve this
+#odds_in_a = [n for n in a if a % 2 == 1]
 def odds(list): #define a function called odd that takes in a list
     odd = [] #creating an empty list called odd 
     for number in list: #for all numbers in a list
@@ -66,6 +68,7 @@ def odds(list): #define a function called odd that takes in a list
     return odd #return the odd list with only odd numbers
 odds_in_a = odds(a) #creating a variable call odds_in_a that runs the odds function to find all the odd numbers in 'a'
 # Exercise 8 - Make a variable named evens_in_a. It should hold only the evens.
+#evens_in_a = [n for n in a if a % 2 == 0]
 def evens(list): #define a function called even that takes in a list
     even = [] #creating an empty list called even
     for number in list: #for all numbers in a list
@@ -143,11 +146,15 @@ B[B % 2 == 0]
 # Exercise 9 - print out the shape of the array b.
 B.shape
 # Exercise 10 - transpose the array b.
+# can also do 'B.T' to transpose
 np.transpose(B)
 # Exercise 11 - reshape the array b to be a single list of 6 numbers. (1 x 6)
+#can also do 'B.flatten'
 np.reshape(B,(1,6))
 # Exercise 12 - reshape the array b to be a list of 6 lists, each containing only 1 number (6 x 1)
-np.reshape(B,(1,6))
+#can also do 'B.reshape(-1,1)' 
+#the -1 says to give me as many rows as there are values in the array
+np.reshape(B,(6,1))
 ## Setup 3
 c = [
     [1, 2, 3],
@@ -169,10 +176,12 @@ C.prod()
 # Exercise 2 - Determine the standard deviation of c.
 C.std()
 # Exercise 3 - Determine the variance of c.
+# 'C.std() ** 2'
 C.var()
 # Exercise 4 - Print out the shape of the array c
 C.shape
 # Exercise 5 - Transpose c and print out transposed result.
+#'C.T'
 tranc = np.transpose(C)
 print(tranc)
 # Exercise 6 - Get the dot product of the array c with c. 
@@ -188,7 +197,7 @@ d = [
     [45, -90, -30, 270, 90, 0],
     [60, 45, -45, 90, -45, 180]
 ]
-
+#can also do 'D = np.array(d)'
 D = np.array([
      [90, 30, 45, 0, 120, 180],
     [45, -90, -30, 270, 90, 0],
@@ -214,4 +223,7 @@ D.shape
 # Exercise 9 - Transpose and then print out the shape of d.
 print(np.transpose(D))
 # Exercise 10 - Reshape d into an array of 9 x 2
+#'D.reshape(9,2)'
+#'D.reshape(-1,2)'
+#'D.reshape(9,-1)'
 np.reshape(D,(9,2))
